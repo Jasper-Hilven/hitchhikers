@@ -4,7 +4,9 @@
 
 package mygame;
 
+import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;
+import mygame.util.Vector3i;
 
 /**
  *
@@ -12,9 +14,18 @@ import mygame.spaceship.pieces.SpaceShipPiecesContainer;
  */
 public class SpaceShip {
     private SpaceShipPiecesContainer pieces;
-    public SpaceShip(SpaceShipPiecesContainer pieces){
-       this.pieces = pieces;
+    private SpaceShipUIController UIController;
+    public SpaceShip(SpaceShipUIController controller){
+       this.pieces = new SpaceShipPiecesContainer();
+       this.UIController = controller;
+    }
+    public void AddPiece(SpaceShipPiece piece, Vector3i position){
+        this.pieces.AddBlock(piece, position);
+        this.UIController.AddBlock(piece, position);
     }
     
-    
+    public void RemovePiece(SpaceShipPiece piece){
+      this.UIController.RemoveBlock(piece);
+      this.pieces.RemoveBlock(piece);
+    }
 }

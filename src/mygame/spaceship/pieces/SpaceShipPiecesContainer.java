@@ -8,10 +8,10 @@ import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.Engine;
 import mygame.spaceship.pieces.FuelReservoir;
 import java.util.HashMap;
-import mygame.MaybeNot;
-import mygame.Sure;
-import mygame.SureNot;
-import mygame.Vector3i;
+import mygame.util.MaybeNot;
+import mygame.util.Sure;
+import mygame.util.SureNot;
+import mygame.util.Vector3i;
 
 /**
  *

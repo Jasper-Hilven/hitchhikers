@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package mygame;
+package mygame.util;
 
 import com.jme3.math.Vector3f;
 
@@ -20,7 +20,7 @@ public class Vector3i {
       this.z = z;
     }
 
-    Vector3f toVector3f() {
+   public Vector3f toVector3f() {
         return new Vector3f(x, y, z); //To change body of generated methods, choose Tools | Templates.
     }
 }
