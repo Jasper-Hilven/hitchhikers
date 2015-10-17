@@ -23,7 +23,7 @@ public class SpaceShipPiecesContainer {
     private HashMap<SpaceShipPiece,Vector3i> positions;
     private float enginePower;
     private float mass;
-    private float FuelCapacity;
+private float FuelCapacity;
     
     public SpaceShipPiecesContainer(){
     pieces = new HashMap<Vector3i, SpaceShipPiece>();

@@ -4,6 +4,8 @@
 
 package mygame;
 
+import com.jme3.math.Vector3f;
+
 /**
  *
  * @author Jasper
@@ -16,5 +18,9 @@ public class Vector3i {
       this.x = x;
       this.y = y;
       this.z = z;
+    }
+
+    Vector3f toVector3f() {
+        return new Vector3f(x, y, z); //To change body of generated methods, choose Tools | Templates.
     }
 }
