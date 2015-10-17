@@ -4,6 +4,7 @@
 
 package mygame;
 
+import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;
 import mygame.util.Vector3i;
@@ -13,12 +14,23 @@ import mygame.util.Vector3i;
  * @author Jasper
  */
 public class SpaceShip {
+    private Vector3f position;
     private SpaceShipPiecesContainer pieces;
     private SpaceShipUIController UIController;
     public SpaceShip(SpaceShipUIController controller){
        this.pieces = new SpaceShipPiecesContainer();
        this.UIController = controller;
+       position = new Vector3f();
     }
+    
+    public Vector3f GetPosition(){
+      return position;
+    }
+    public void SetPosition(Vector3f position){
+        this.position = position;
+        UIController.SetPosition(position);
+    }
+    
     public void AddPiece(SpaceShipPiece piece, Vector3i position){
         this.pieces.AddBlock(piece, position);
         this.UIController.AddBlock(piece, position);

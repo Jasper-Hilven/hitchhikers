@@ -5,6 +5,7 @@
 package mygame;
 
 import com.jme3.app.SimpleApplication;
+import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
@@ -15,10 +16,10 @@ import mygame.spaceship.pieces.BasicEngine;
 import mygame.spaceship.pieces.BasicFuelReservoir;
 import mygame.util.Vector3i;
 
-/**
- * test
- * @author normenhansen
- */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 public class Main extends SimpleApplication {
 
     public static void main(String[] args) {
@@ -42,11 +43,13 @@ public class Main extends SimpleApplication {
         SpaceShip ship = new SpaceShip(uicontroller);
         ship.AddPiece(new BasicEngine(), new Vector3i(0, 0, 0));
         ship.AddPiece(new BasicFuelReservoir(), new Vector3i(0, 0, 1));
+        inputManager.addMapping("Forward", new KeyTrigger(keyInput.KEY_T));
+        inputManager.addListener(new SpaceShipMovementController(ship), "Forward");
     }
 
     @Override
     public void simpleUpdate(float tpf) {
-        //TODO: add update code
+        
     }
 
     @Override
