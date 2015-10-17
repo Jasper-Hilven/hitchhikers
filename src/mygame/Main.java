@@ -4,6 +4,9 @@
 
 package mygame;
 
+import mygame.spaceship.SpaceShip;
+import mygame.spaceship.SpaceShipUIController;
+import mygame.spaceship.SpaceShipMovementController;
 import com.jme3.app.SimpleApplication;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
@@ -45,6 +48,8 @@ public class Main extends SimpleApplication {
         ship.AddPiece(new BasicFuelReservoir(), new Vector3i(0, 0, 1));
         inputManager.addMapping("Forward", new KeyTrigger(keyInput.KEY_T));
         inputManager.addListener(new SpaceShipMovementController(ship), "Forward");
+        inputManager.addMapping("Backward", new KeyTrigger(keyInput.KEY_G));
+        inputManager.addListener(new SpaceShipMovementController(ship), "Backward");
     }
 
     @Override
