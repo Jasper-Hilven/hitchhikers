@@ -44,7 +44,7 @@ public class SpaceShipUIController {
         this.Ship.detachChild(block);
     }
     private Geometry CreateBlock(SpaceShipPiece piece){
-              Box b = new Box(1, 1, 1);
+              Box b = new Box(0.5f, 0.5f, 0.5f);
         Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         ColorRGBA color = piece instanceof Engine ? ColorRGBA.Red : ColorRGBA.Brown;
         mat.setColor("Color", color);
