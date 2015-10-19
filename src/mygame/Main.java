@@ -15,6 +15,7 @@ import com.jme3.math.Vector3f;
 import com.jme3.renderer.RenderManager;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
+import mygame.physics.PhysicsControllerFactory;
 import mygame.spaceship.pieces.BasicEngine;
 import mygame.spaceship.pieces.BasicFuelReservoir;
 import mygame.util.Vector3i;
@@ -24,7 +25,7 @@ import mygame.util.Vector3i;
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 public class Main extends SimpleApplication {
-
+PhysicsControllerFactory physics;
     public static void main(String[] args) {
         Main app = new Main();
         app.start();
@@ -39,11 +40,11 @@ public class Main extends SimpleApplication {
         geom.setMaterial(mat);
         geom.setLocalTranslation(0, -2, 0);
         rootNode.attachChild(geom);
-        
+        physics = new PhysicsControllerFactory();
         
         SpaceShipUIController uicontroller = new SpaceShipUIController(assetManager);
         rootNode.attachChild(uicontroller.GetShip());
-        SpaceShip ship = new SpaceShip(uicontroller);
+        SpaceShip ship = new SpaceShip(uicontroller,physics.GetSpaceShipController());
         ship.AddPiece(new BasicEngine(), new Vector3i(0, 0, 0));
         ship.AddPiece(new BasicFuelReservoir(), new Vector3i(0, 0, 1));
         inputManager.addMapping("Forward", new KeyTrigger(keyInput.KEY_T));
@@ -54,7 +55,7 @@ public class Main extends SimpleApplication {
 
     @Override
     public void simpleUpdate(float tpf) {
-        
+       physics.update(tpf);
     }
 
     @Override

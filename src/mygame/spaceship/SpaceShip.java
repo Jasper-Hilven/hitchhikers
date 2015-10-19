@@ -14,23 +14,29 @@ import mygame.util.Vector3i;
  * @author Jasper
  */
 public class SpaceShip {
-    private Vector3f position;
     private SpaceShipPiecesContainer pieces;
     private SpaceShipUIController UIController;
-    public SpaceShip(SpaceShipUIController controller){
+    private SpaceShipPhysicsController physicsController;
+    private SpaceShipEngineController spaceShipEngineController;
+    private final SpaceShipFuelController fuelController;
+    public SpaceShip(SpaceShipUIController controller, SpaceShipPhysicsController physicsController){
        this.pieces = new SpaceShipPiecesContainer();
        this.UIController = controller;
-       position = new Vector3f();
+       this.physicsController = physicsController;
+       this.fuelController = new SpaceShipFuelController();
+       physicsController.SetSpaceShip(this);
     }
-    
+    ///////REGION PHYSICS
     public Vector3f GetPosition(){
-      return position;
+      return physicsController.getPosition();
     }
     public void SetPosition(Vector3f position){
-        this.position = position;
         UIController.SetPosition(position);
     }
     
+    ///////ENDREGION PHYSICS
+    
+    ///////REGION PIECES
     public void AddPiece(SpaceShipPiece piece, Vector3i position){
         this.pieces.AddBlock(piece, position);
         this.UIController.AddBlock(piece, position);
@@ -40,4 +46,19 @@ public class SpaceShip {
       this.UIController.RemoveBlock(piece);
       this.pieces.RemoveBlock(piece);
     }
+    
+    //////ENDREGION PIECES
+    
+    /////REGION ENGINE AND FUEL
+    public void SetEngineActivity(float activity){
+      this.spaceShipEngineController.SetEngineActivity(activity);
+    }
+    public float ConsumeFuel(float wantedAmount){
+      return this.fuelController.GetFuel(wantedAmount);
+    }
+    public float GetTotalFuel(){
+      return this.fuelController.GetTotalFuel();
+    }
+    /////ENDREGION ENGINE AND FUEL
+    
 }

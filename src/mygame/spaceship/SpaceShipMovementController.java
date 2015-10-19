@@ -13,16 +13,16 @@ public class SpaceShipMovementController implements AnalogListener{
     
     public SpaceShipMovementController(SpaceShip ship){
       this.ship = ship;
-    
-    
     }
 
     public void onAnalog(String name, float value, float tpf) {
       if (name.equals("Forward")) {
-        ship.SetPosition(ship.GetPosition().add(new Vector3f(tpf, 0, 0)));
+        //Command to engine controller
+        //ship.SetPosition(ship.GetPosition().add(new Vector3f(tpf, 0, 0)));
       }
       if (name.equals("Backward")) {
-        ship.SetPosition(ship.GetPosition().add(new Vector3f(-tpf, 0, 0)));
+        //Command to engine controller
+        //ship.SetPosition(ship.GetPosition().add(new Vector3f(-tpf, 0, 0)));
       }
       }
 }
