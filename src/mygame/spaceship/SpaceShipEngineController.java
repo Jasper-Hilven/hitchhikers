@@ -3,10 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package mygame.spaceship;
 
-/**
- *
- * @author Jasper
- */
+
 public class SpaceShipEngineController {
     private float engineActivity;
     private SpaceShip ship;
@@ -16,7 +13,7 @@ public class SpaceShipEngineController {
     void SetEngineActivity(float activity) { //One means top speed forward, minus one means top speed backward.
         this.engineActivity = engineActivity;
     }
-    void update(float tpf){
+    public void update(float tpf){
        
       float fuelCost = tpf*Math.abs(engineActivity);
       float consumedFuel = ship.ConsumeFuel(fuelCost);

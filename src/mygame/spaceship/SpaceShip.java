@@ -17,9 +17,9 @@ public class SpaceShip {
     private SpaceShipPiecesContainer pieces;
     private SpaceShipUIController UIController;
     private SpaceShipPhysicsController physicsController;
-    private SpaceShipEngineController spaceShipEngineController;
+    private SpaceShipEngineController engineController;
     private final SpaceShipFuelController fuelController;
-    public SpaceShip(SpaceShipUIController controller, SpaceShipPhysicsController physicsController){
+    public SpaceShip(SpaceShipUIController controller, SpaceShipPhysicsController physicsController,SpaceShipFuelController fuelController, SpaceShipEngineController engineController){
        this.pieces = new SpaceShipPiecesContainer();
        this.UIController = controller;
        this.physicsController = physicsController;
@@ -51,7 +51,7 @@ public class SpaceShip {
     
     /////REGION ENGINE AND FUEL
     public void SetEngineActivity(float activity){
-      this.spaceShipEngineController.SetEngineActivity(activity);
+      this.engineController.SetEngineActivity(activity);
     }
     public float ConsumeFuel(float wantedAmount){
       return this.fuelController.GetFuel(wantedAmount);
