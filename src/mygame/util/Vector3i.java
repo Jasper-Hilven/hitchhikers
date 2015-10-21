@@ -6,10 +6,7 @@ package mygame.util;
 
 import com.jme3.math.Vector3f;
 
-/**
- *
- * @author Jasper
- */
+
 public class Vector3i {
     private final int x;
     private final int y;

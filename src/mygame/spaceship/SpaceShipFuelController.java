@@ -5,7 +5,7 @@ package mygame.spaceship;
 
 
 public class SpaceShipFuelController {
-    private float fuel;
+    private float fuel = 20;
     public float GetFuel(float wantedAmount){
       if(wantedAmount > fuel)
       {

@@ -4,10 +4,7 @@
 
 package mygame.util;
 
-/**
- *
- * @author Jasper
- */
+
 public class SureNot<E> implements MaybeNot <E>{
  public SureNot(E reason){}
 

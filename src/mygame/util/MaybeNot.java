@@ -4,10 +4,7 @@
 
 package mygame.util;
 
-/**
- *
- * @author Jasper
- */
+
 public interface MaybeNot <E> {
     
 }

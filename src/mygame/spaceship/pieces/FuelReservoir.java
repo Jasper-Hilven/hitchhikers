@@ -4,10 +4,7 @@
 
 package mygame.spaceship.pieces;
 
-/**
- *
- * @author Jasper
- */
+
 public interface FuelReservoir extends SpaceShipPiece{
   float GetCapacity();    
 }

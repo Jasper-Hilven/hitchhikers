@@ -17,12 +17,10 @@ public class SpaceShipMovementController implements AnalogListener{
 
     public void onAnalog(String name, float value, float tpf) {
       if (name.equals("Forward")) {
-        //Command to engine controller
-        //ship.SetPosition(ship.GetPosition().add(new Vector3f(tpf, 0, 0)));
+          ship.engineController.SetEngineActivity(1);
       }
       if (name.equals("Backward")) {
-        //Command to engine controller
-        //ship.SetPosition(ship.GetPosition().add(new Vector3f(-tpf, 0, 0)));
+          ship.engineController.SetEngineActivity(-1);
       }
-      }
+   }
 }

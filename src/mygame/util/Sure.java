@@ -4,10 +4,6 @@
 
 package mygame.util;
 
-/**
- *
- * @author Jasper
- */
 public class Sure implements MaybeNot{
     
 }

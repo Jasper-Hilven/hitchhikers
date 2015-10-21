@@ -12,11 +12,12 @@ public class SystemControllerFactory{
   private ArrayList<SpaceShipEngineController> engineControllers = new ArrayList<SpaceShipEngineController>();
     
     public SpaceShipFuelController GetFuelController(){
-  
       return new SpaceShipFuelController();
-  }
+    }
   public SpaceShipEngineController GetEngineController(){
-    return new SpaceShipEngineController();
+      SpaceShipEngineController controller = new SpaceShipEngineController();
+        engineControllers.add(controller);
+      return controller;
   }
 
   public void Update(float tpf){

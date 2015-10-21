@@ -4,10 +4,7 @@
 
 package mygame.spaceship.pieces;
 
-/**
- *
- * @author Jasper
- */
+
 public interface Engine extends SpaceShipPiece {
     //SI unit, expressed in Kg*m/s2
     float GetTrust();

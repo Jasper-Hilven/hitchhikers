@@ -5,23 +5,14 @@
 package mygame;
 
 import mygame.spaceship.SpaceShip;
-import mygame.spaceship.SpaceShipUIController;
 import mygame.spaceship.SpaceShipMovementController;
 import com.jme3.app.SimpleApplication;
 import com.jme3.input.controls.KeyTrigger;
-import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
-import com.jme3.math.Vector3f;
 import com.jme3.renderer.RenderManager;
-import com.jme3.scene.Geometry;
-import com.jme3.scene.shape.Box;
 import mygame.physics.PhysicsControllerFactory;
 import mygame.physics.SystemControllerFactory;
 import mygame.spaceship.SpaceShipFactory;
 import mygame.spaceship.SpaceShipUIControllerFactory;
-import mygame.spaceship.pieces.BasicEngine;
-import mygame.spaceship.pieces.BasicFuelReservoir;
-import mygame.util.Vector3i;
 
 
 public class Main extends SimpleApplication {
@@ -39,10 +30,11 @@ PhysicsControllerFactory physics;
         SpaceShipUIControllerFactory uis = new SpaceShipUIControllerFactory(assetManager, rootNode);
         SpaceShipFactory factory = new SpaceShipFactory(assetManager, physics, systems, uis);
         SpaceShip ship = factory.GetSpaceShip();
+        SpaceShipMovementController movementController = new SpaceShipMovementController(ship);
         inputManager.addMapping("Forward", new KeyTrigger(keyInput.KEY_T));
-        inputManager.addListener(new SpaceShipMovementController(ship), "Forward");
+        inputManager.addListener(movementController, "Forward");
         inputManager.addMapping("Backward", new KeyTrigger(keyInput.KEY_G));
-        inputManager.addListener(new SpaceShipMovementController(ship), "Backward");
+        inputManager.addListener(movementController, "Backward");
     }
 
     @Override

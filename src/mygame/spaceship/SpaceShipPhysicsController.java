@@ -4,22 +4,21 @@
 package mygame.spaceship;
 
 import com.jme3.math.Vector3f;
+import mygame.spaceship.pieces.SpaceShipPiece;
+import mygame.util.Vector3i;
 
-/**
- *
- * @author Jasper
- */
 public class SpaceShipPhysicsController {
     private SpaceShip spaceShip;
     private Vector3f position;
     private Vector3f orientation;
-    private Vector3f speed;
+    private Vector3f speed ;
     private Vector3f frameImpuls;
     private float BlockMass;
     
     public SpaceShipPhysicsController(){
-      this.position = new Vector3f();
-      this.speed = new Vector3f();
+      this.position = Vector3f.ZERO;
+      this.speed = Vector3f.ZERO;
+      this.frameImpuls = Vector3f.ZERO;
     }
     
     public void SetSpaceShip(SpaceShip spaceShip){
@@ -31,7 +30,14 @@ public class SpaceShipPhysicsController {
   }
   public void update(float tpf){
     position= position.add(speed.mult(tpf));
-    spaceShip.SetPosition(position);
+    spaceShip.NotifyPosition(position);
+    if(frameImpuls.equals(Vector3f.ZERO))
+        return;
+    float mass = GetMass();
+    if(mass == 0)
+        throw new IllegalStateException();
+    speed = speed.add(frameImpuls.divide(mass));
+    frameImpuls = new Vector3f();
   }
 
   Vector3f getPosition() {
@@ -42,4 +48,12 @@ public class SpaceShipPhysicsController {
   {
     frameImpuls = frameImpuls.add(impuls);
   }
+
+    void RemoveBlock(SpaceShipPiece piece) {
+      BlockMass -= 1f;    
+    }
+
+    void AddBlock(SpaceShipPiece piece, Vector3i position) {
+     BlockMass += 1f;
+    }
 }
