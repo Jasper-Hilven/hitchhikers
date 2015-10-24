@@ -9,6 +9,7 @@ import mygame.spaceship.physics.SpaceShipPhysicsController;
 import mygame.spaceship.physics.systems.engine.SpaceShipEngineController;
 import mygame.spaceship.physics.systems.fuel.SpaceShipFuelController;
 import com.jme3.math.Vector3f;
+import mygame.spaceship.physics.systems.gyro.SpaceShipGyroController;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;
 import mygame.util.DiscreteMath.Pose;
@@ -23,13 +24,17 @@ public class SpaceShip {
     public final SpaceShipUIController UIController;
     public final SpaceShipPhysicsController physicsController;
     public final SpaceShipEngineController engineController;
+    public final SpaceShipGyroController gyroController; 
     public final SpaceShipFuelController fuelController;
-    public SpaceShip(SpaceShipUIController controller, SpaceShipPhysicsController physicsController,SpaceShipFuelController fuelController, SpaceShipEngineController engineController){
+    public SpaceShip(SpaceShipUIController controller, SpaceShipPhysicsController physicsController,
+                     SpaceShipFuelController fuelController, SpaceShipEngineController engineController,
+                     SpaceShipGyroController gyroController){
        this.pieces = new SpaceShipPiecesContainer();
        this.UIController = controller;
        this.physicsController = physicsController;
        this.fuelController = fuelController;
        this.engineController = engineController;
+       this.gyroController = gyroController;
        physicsController.SetSpaceShip(this);
     }
     ///////REGION PHYSICS

@@ -29,7 +29,7 @@ public class SpaceShipFactory {
     SpaceShip ship =  new SpaceShip(UIControllerFactory.GetSpaceShipUIController(), 
             physicsControllerFactory.GetSpaceShipController(),
             systemControllerFactory.GetFuelController(),
-            engineController);
+            engineController,systemControllerFactory.GetGyroController());
     engineController.SetSpaceShip(ship);  
     ship.AddPiece(new BasicEngine(), new Pose(0, 0, 0));
         ship.AddPiece(new BasicFuelReservoir(), new Pose(0, 0, 1));

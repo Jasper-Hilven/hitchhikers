@@ -6,10 +6,12 @@ package mygame.spaceship.physics.systems;
 import java.util.ArrayList;
 import mygame.spaceship.physics.systems.fuel.SpaceShipFuelController;
 import mygame.spaceship.physics.systems.engine.SpaceShipEngineController;
+import mygame.spaceship.physics.systems.gyro.SpaceShipGyroController;
 
 
 public class SystemControllerFactory{
   private ArrayList<SpaceShipEngineController> engineControllers = new ArrayList<SpaceShipEngineController>();
+  private ArrayList<SpaceShipGyroController> gyroControllers = new ArrayList<SpaceShipGyroController>();
     
     public SpaceShipFuelController GetFuelController(){
       return new SpaceShipFuelController();
@@ -19,11 +21,17 @@ public class SystemControllerFactory{
         engineControllers.add(controller);
       return controller;
   }
-
+  public SpaceShipGyroController GetGyroController(){
+     SpaceShipGyroController controller = new SpaceShipGyroController();
+        gyroControllers.add(controller);
+        return controller;
+  }
   public void Update(float tpf){
     for(SpaceShipEngineController engineController : engineControllers){
       engineController.update(tpf);
     }
+    for(SpaceShipGyroController gyroController: gyroControllers)
+        gyroController.update(tpf);
   }
 
 }
