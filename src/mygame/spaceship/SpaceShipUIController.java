@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package mygame.spaceship;
 
-import mygame.util.Vector3i;
+import mygame.util.DiscreteMath.Vector3i;
 import com.jme3.asset.AssetManager;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import mygame.spaceship.pieces.Engine;
 import mygame.spaceship.pieces.SpaceShipPiece;
-import mygame.util.Pose;
+import mygame.util.DiscreteMath.Pose;
 
 
 public class SpaceShipUIController {

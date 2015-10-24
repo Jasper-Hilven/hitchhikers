@@ -3,10 +3,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package mygame.spaceship;
 
-import mygame.util.Pose;
+import mygame.util.DiscreteMath.Pose;
 import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
-import mygame.util.Vector3i;
+import mygame.util.DiscreteMath.Vector3i;
 
 public class SpaceShipPhysicsController {
     private SpaceShip spaceShip;

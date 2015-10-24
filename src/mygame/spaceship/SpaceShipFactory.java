@@ -8,8 +8,8 @@ import mygame.physics.PhysicsControllerFactory;
 import mygame.physics.SystemControllerFactory;
 import mygame.spaceship.pieces.BasicEngine;
 import mygame.spaceship.pieces.BasicFuelReservoir;
-import mygame.util.Pose;
-import mygame.util.Vector3i;
+import mygame.util.DiscreteMath.Pose;
+import mygame.util.DiscreteMath.Vector3i;
 
 
 public class SpaceShipFactory {

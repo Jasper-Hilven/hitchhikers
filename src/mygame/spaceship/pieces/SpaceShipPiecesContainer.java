@@ -5,12 +5,12 @@
 package mygame.spaceship.pieces;
 
 import java.util.HashMap;
-import mygame.util.MaybeNot;
-import mygame.util.Orientation;
-import mygame.util.Pose;
-import mygame.util.Sure;
-import mygame.util.SureNot;
-import mygame.util.Vector3i;
+import mygame.util.Maybe.MaybeNot;
+import mygame.util.DiscreteMath.Orientation;
+import mygame.util.DiscreteMath.Pose;
+import mygame.util.Maybe.Sure;
+import mygame.util.Maybe.SureNot;
+import mygame.util.DiscreteMath.Vector3i;
 
 public class SpaceShipPiecesContainer {
     
@@ -24,6 +24,7 @@ private float FuelCapacity;
     public SpaceShipPiecesContainer(){
     pieces = new HashMap<Vector3i, SpaceShipPiece>();
     positions = new HashMap<SpaceShipPiece,Vector3i>();
+    orientations = new HashMap<SpaceShipPiece, Orientation>();
     }
     
     public void UpdateBlock(SpaceShipPiece piece){

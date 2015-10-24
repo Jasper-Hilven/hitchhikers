@@ -7,8 +7,8 @@ package mygame.spaceship;
 import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;
-import mygame.util.Pose;
-import mygame.util.Vector3i;
+import mygame.util.DiscreteMath.Pose;
+import mygame.util.DiscreteMath.Vector3i;
 
 /**
  *
