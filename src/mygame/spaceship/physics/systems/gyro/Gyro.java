@@ -5,6 +5,7 @@ import mygame.spaceship.pieces.SpaceShipPiece;
 
 
 public interface Gyro extends SpaceShipPiece{
-
+  //Expressed in kg*m*m/s
+  public float GetTurningSpeed();  
 
 }

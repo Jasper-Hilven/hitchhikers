@@ -9,6 +9,8 @@ public class BasicGyro implements  Gyro{
     public float GetMass() {
         return 1; //To change body of generated methods, choose Tools | Templates.
     }
-
+   public float GetTurningSpeed(){
+     return 1;
+   }
 }
 
