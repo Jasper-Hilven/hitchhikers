@@ -5,7 +5,7 @@
 package mygame.physics;
 
 import java.util.ArrayList;
-import mygame.spaceship.SpaceShipPhysicsController;
+import mygame.spaceship.movement.SpaceShipPhysicsController;
 
 public class PhysicsControllerFactory {
   private ArrayList<SpaceShipPhysicsController> shipControllers = new ArrayList<SpaceShipPhysicsController>();

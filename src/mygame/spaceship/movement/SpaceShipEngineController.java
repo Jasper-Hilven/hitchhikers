@@ -1,10 +1,11 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-package mygame.spaceship;
+package mygame.spaceship.movement;
 
 import com.jme3.math.Vector3f;
-import mygame.spaceship.pieces.Engine;
+import mygame.spaceship.SpaceShip;
+import mygame.spaceship.movement.Engine;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.util.DiscreteMath.Pose;
 
@@ -14,14 +15,14 @@ public class SpaceShipEngineController {
     private float enginePower;
     private SpaceShip ship;
     private Vector3f engineDirection;
-    void SetSpaceShip(SpaceShip ship){
+    public void SetSpaceShip(SpaceShip ship){
       this.ship = ship;
     }
     public SpaceShipEngineController(){
         enginePower = 0;
         engineDirection = new Vector3f(1, 0, 0);
     }
-    void SetEngineActivity(float activity) { //One means top speed forward, minus one means top speed backward.
+    public void SetEngineActivity(float activity) { //One means top speed forward, minus one means top speed backward.
         this.engineActivity = activity;
         this.engineDirection = new Vector3f(1, 0, 0);
     }
@@ -40,9 +41,9 @@ public class SpaceShipEngineController {
     
     public void update(float tpf){
        
-      float fuelCost = tpf*Math.abs(engineActivity);
-      float consumedFuel = ship.ConsumeFuel(fuelCost);
-      float impulsSize = fuelCost*Math.signum(engineActivity);
+      float fuelCost = tpf*Math.abs(engineActivity)*Math.abs(enginePower);
+      float consumedFuel = ship.fuelController.GetFuel(fuelCost);
+      float impulsSize = consumedFuel*Math.signum(engineActivity);
       engineActivity = 0f;
       Vector3f impuls = engineDirection.mult(impulsSize);
       if(!impuls.equals(Vector3f.ZERO))

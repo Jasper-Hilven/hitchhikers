@@ -14,7 +14,7 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import java.util.HashMap;
 import java.util.Map;
-import mygame.spaceship.pieces.Engine;
+import mygame.spaceship.movement.Engine;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.util.DiscreteMath.Pose;
 

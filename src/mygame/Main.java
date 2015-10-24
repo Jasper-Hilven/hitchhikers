@@ -5,7 +5,7 @@
 package mygame;
 
 import mygame.spaceship.SpaceShip;
-import mygame.spaceship.SpaceShipMovementController;
+import mygame.spaceship.movement.SpaceShipMovementController;
 import com.jme3.app.SimpleApplication;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.renderer.RenderManager;

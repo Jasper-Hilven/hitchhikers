@@ -4,6 +4,9 @@
 
 package mygame.spaceship;
 
+import mygame.spaceship.movement.SpaceShipPhysicsController;
+import mygame.spaceship.movement.SpaceShipEngineController;
+import mygame.spaceship.movement.SpaceShipFuelController;
 import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;
@@ -64,12 +67,7 @@ public class SpaceShip {
     }
     public float ConsumeFuel(float wantedAmount){
       return this.fuelController.GetFuel(wantedAmount);
-    }
-    public float GetTotalFuel(){
-      return this.fuelController.GetTotalFuel();
-    }
-    
-    
+    }    
     /////ENDREGION ENGINE AND FUEL
     
 }

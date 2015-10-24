@@ -4,8 +4,8 @@
 package mygame.physics;
 
 import java.util.ArrayList;
-import mygame.spaceship.SpaceShipFuelController;
-import mygame.spaceship.SpaceShipEngineController;
+import mygame.spaceship.movement.SpaceShipFuelController;
+import mygame.spaceship.movement.SpaceShipEngineController;
 
 
 public class SystemControllerFactory{

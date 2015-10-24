@@ -1,10 +1,11 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-package mygame.spaceship;
+package mygame.spaceship.movement;
 
 import mygame.util.DiscreteMath.Pose;
 import com.jme3.math.Vector3f;
+import mygame.spaceship.SpaceShip;
 import mygame.spaceship.pieces.SpaceShipPiece;
 
 public class SpaceShipPhysicsController {
@@ -26,7 +27,7 @@ public class SpaceShipPhysicsController {
     
     }
   private float GetMass(){
-    return BlockMass + spaceShip.GetTotalFuel();
+    return BlockMass + spaceShip.fuelController.GetTotalFuel();
   }
   public void update(float tpf){
     position= position.add(speed.mult(tpf));
@@ -40,7 +41,7 @@ public class SpaceShipPhysicsController {
     frameImpuls = new Vector3f();
   }
 
-  Vector3f getPosition() {
+  public Vector3f getPosition() {
       return position;
   }
   //expressed in N*s
@@ -49,11 +50,11 @@ public class SpaceShipPhysicsController {
     frameImpuls = frameImpuls.add(impuls);
   }
 
-    void RemoveBlock(SpaceShipPiece piece) {
+    public void RemoveBlock(SpaceShipPiece piece) {
       BlockMass -= 1f;    
     }
 
-    void AddBlock(SpaceShipPiece piece, Pose pose) {
+    public void AddBlock(SpaceShipPiece piece, Pose pose) {
      BlockMass += 1f;
     }
 }

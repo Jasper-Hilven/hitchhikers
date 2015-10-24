@@ -2,10 +2,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package mygame.spaceship;
+package mygame.spaceship.movement;
 
 import com.jme3.input.controls.AnalogListener;
 import com.jme3.math.Vector3f;
+import mygame.spaceship.SpaceShip;
 
 
 public class SpaceShipMovementController implements AnalogListener{
