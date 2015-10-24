@@ -42,7 +42,7 @@ public class SpaceShipEngineController {
     public void update(float tpf){
        
       float fuelCost = tpf*Math.abs(engineActivity)*Math.abs(enginePower);
-      float consumedFuel = ship.fuelController.GetFuel(fuelCost);
+      float consumedFuel = ship.systemController.fuelController.GetFuel(fuelCost);
       float impulsSize = consumedFuel*Math.signum(engineActivity);
       engineActivity = 0f;
       Vector3f impuls = engineDirection.mult(impulsSize);

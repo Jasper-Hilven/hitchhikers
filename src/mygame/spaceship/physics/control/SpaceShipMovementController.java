@@ -18,10 +18,10 @@ public class SpaceShipMovementController implements AnalogListener{
 
     public void onAnalog(String name, float value, float tpf) {
       if (name.equals("Forward")) {
-          ship.engineController.SetEngineActivity(1);
+          ship.systemController.engineController.SetEngineActivity(1);
       }
       if (name.equals("Backward")) {
-          ship.engineController.SetEngineActivity(-1);
+          ship.systemController.engineController.SetEngineActivity(-1);
       }
    }
 }

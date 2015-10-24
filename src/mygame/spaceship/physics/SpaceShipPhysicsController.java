@@ -27,7 +27,7 @@ public class SpaceShipPhysicsController {
     
     }
   private float GetMass(){
-    return BlockMass + spaceShip.fuelController.GetTotalFuel();
+    return BlockMass + spaceShip.systemController.fuelController.GetTotalFuel();
   }
   public void update(float tpf){
     position= position.add(speed.mult(tpf));

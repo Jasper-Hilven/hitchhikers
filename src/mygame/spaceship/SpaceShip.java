@@ -6,14 +6,11 @@ package mygame.spaceship;
 
 import mygame.spaceship.ui.SpaceShipUIController;
 import mygame.spaceship.physics.SpaceShipPhysicsController;
-import mygame.spaceship.physics.systems.engine.SpaceShipEngineController;
-import mygame.spaceship.physics.systems.fuel.SpaceShipFuelController;
 import com.jme3.math.Vector3f;
-import mygame.spaceship.physics.systems.gyro.SpaceShipGyroController;
+import mygame.spaceship.physics.systems.SystemController;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;
 import mygame.util.DiscreteMath.Pose;
-import mygame.util.DiscreteMath.Vector3i;
 
 /**
  *
@@ -23,18 +20,13 @@ public class SpaceShip {
     public final SpaceShipPiecesContainer pieces;
     public final SpaceShipUIController UIController;
     public final SpaceShipPhysicsController physicsController;
-    public final SpaceShipEngineController engineController;
-    public final SpaceShipGyroController gyroController; 
-    public final SpaceShipFuelController fuelController;
+    public final SystemController systemController;
     public SpaceShip(SpaceShipUIController controller, SpaceShipPhysicsController physicsController,
-                     SpaceShipFuelController fuelController, SpaceShipEngineController engineController,
-                     SpaceShipGyroController gyroController){
+                     SystemController systemController){
        this.pieces = new SpaceShipPiecesContainer();
        this.UIController = controller;
        this.physicsController = physicsController;
-       this.fuelController = fuelController;
-       this.engineController = engineController;
-       this.gyroController = gyroController;
+       this.systemController = systemController;
        physicsController.SetSpaceShip(this);
     }
     ///////REGION PHYSICS
@@ -51,28 +43,22 @@ public class SpaceShip {
     public void AddPiece(SpaceShipPiece piece, Pose pose){
         this.pieces.AddBlock(piece, pose);
         this.UIController.AddBlock(piece, pose);
-        this.engineController.AddBlock(piece, pose);
-        this.fuelController.AddBlock(piece, pose);
         this.physicsController.AddBlock(piece, pose);
-        
+        this.systemController.AddBlock(piece, pose);
     }
     
     public void RemovePiece(SpaceShipPiece piece){
       this.UIController.RemoveBlock(piece);
       this.pieces.RemoveBlock(piece);
-      this.engineController.RemoveBlock(piece);
-      this.fuelController.RemoveBlock(piece);
+      this.systemController.RemoveBlock(piece);
       this.physicsController.RemoveBlock(piece);
     }
     
     //////ENDREGION PIECES
     
     /////REGION ENGINE AND FUEL
-    public void SetEngineActivity(float activity){
-      this.engineController.SetEngineActivity(activity);
-    }
     public float ConsumeFuel(float wantedAmount){
-      return this.fuelController.GetFuel(wantedAmount);
+      return this.systemController.fuelController.GetFuel(wantedAmount);
     }    
     /////ENDREGION ENGINE AND FUEL
     

@@ -4,14 +4,13 @@
 package mygame.spaceship;
 
 import mygame.spaceship.ui.SpaceShipUIControllerFactory;
-import mygame.spaceship.physics.systems.engine.SpaceShipEngineController;
 import com.jme3.asset.AssetManager;
 import mygame.spaceship.physics.PhysicsControllerFactory;
+import mygame.spaceship.physics.systems.SystemController;
 import mygame.spaceship.physics.systems.SystemControllerFactory;
 import mygame.spaceship.physics.systems.engine.BasicEngine;
 import mygame.spaceship.physics.systems.fuel.BasicFuelReservoir;
 import mygame.util.DiscreteMath.Pose;
-import mygame.util.DiscreteMath.Vector3i;
 
 
 public class SpaceShipFactory {
@@ -25,12 +24,11 @@ public class SpaceShipFactory {
      this.UIControllerFactory = UIControllerFactory;
   }
     public SpaceShip GetSpaceShip(){
-    SpaceShipEngineController engineController = systemControllerFactory.GetEngineController();
-    SpaceShip ship =  new SpaceShip(UIControllerFactory.GetSpaceShipUIController(), 
+    SystemController systemController = systemControllerFactory.GetSystemController();
+        SpaceShip ship =  new SpaceShip(UIControllerFactory.GetSpaceShipUIController(), 
             physicsControllerFactory.GetSpaceShipController(),
-            systemControllerFactory.GetFuelController(),
-            engineController,systemControllerFactory.GetGyroController());
-    engineController.SetSpaceShip(ship);  
+            systemController);
+    systemController.SetSpaceShip(ship);  
     ship.AddPiece(new BasicEngine(), new Pose(0, 0, 0));
         ship.AddPiece(new BasicFuelReservoir(), new Pose(0, 0, 1));
         return ship;
