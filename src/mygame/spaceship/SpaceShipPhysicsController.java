@@ -6,7 +6,6 @@ package mygame.spaceship;
 import mygame.util.DiscreteMath.Pose;
 import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
-import mygame.util.DiscreteMath.Vector3i;
 
 public class SpaceShipPhysicsController {
     private SpaceShip spaceShip;

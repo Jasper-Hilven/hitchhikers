@@ -3,9 +3,13 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package mygame.spaceship;
 
+import mygame.spaceship.pieces.FuelReservoir;
+import mygame.util.DiscreteMath.Pose;
+import mygame.spaceship.pieces.SpaceShipPiece;
 
 public class SpaceShipFuelController {
-    private float fuel = 20;
+    private float fuelCapacity = 0;
+    private float fuel = 0;
     public float GetFuel(float wantedAmount){
       if(wantedAmount > fuel)
       {
@@ -18,4 +22,22 @@ public class SpaceShipFuelController {
     public float GetTotalFuel(){
       return fuel;
     }
+    public void RemoveBlock(SpaceShipPiece piece) {
+      if(!(piece instanceof FuelReservoir))
+          return;
+      fuelCapacity -= ((FuelReservoir)piece).GetCapacity();
+      fuel = Math.min(fuel, fuelCapacity);
+
+    }
+
+    public void AddBlock(SpaceShipPiece piece, Pose pose) {
+      if(!(piece instanceof FuelReservoir))
+          return;
+      float blockCapacity = ((FuelReservoir)piece).GetCapacity();
+      fuelCapacity += blockCapacity;
+      fuel = Math.max(fuel + blockCapacity, fuelCapacity);
+    }
+
+    
+    
 }

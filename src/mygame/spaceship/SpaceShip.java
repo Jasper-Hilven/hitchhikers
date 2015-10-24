@@ -42,6 +42,8 @@ public class SpaceShip {
     public void AddPiece(SpaceShipPiece piece, Pose pose){
         this.pieces.AddBlock(piece, pose);
         this.UIController.AddBlock(piece, pose);
+        this.engineController.AddBlock(piece, pose);
+        this.fuelController.AddBlock(piece, pose);
         this.physicsController.AddBlock(piece, pose);
         
     }
@@ -49,6 +51,8 @@ public class SpaceShip {
     public void RemovePiece(SpaceShipPiece piece){
       this.UIController.RemoveBlock(piece);
       this.pieces.RemoveBlock(piece);
+      this.engineController.RemoveBlock(piece);
+      this.fuelController.RemoveBlock(piece);
       this.physicsController.RemoveBlock(piece);
     }
     

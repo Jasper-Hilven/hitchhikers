@@ -4,22 +4,40 @@
 package mygame.spaceship;
 
 import com.jme3.math.Vector3f;
+import mygame.spaceship.pieces.Engine;
+import mygame.spaceship.pieces.SpaceShipPiece;
+import mygame.util.DiscreteMath.Pose;
 
 
 public class SpaceShipEngineController {
     private float engineActivity;
+    private float enginePower;
     private SpaceShip ship;
     private Vector3f engineDirection;
     void SetSpaceShip(SpaceShip ship){
       this.ship = ship;
     }
     public SpaceShipEngineController(){
+        enginePower = 0;
         engineDirection = new Vector3f(1, 0, 0);
     }
     void SetEngineActivity(float activity) { //One means top speed forward, minus one means top speed backward.
         this.engineActivity = activity;
         this.engineDirection = new Vector3f(1, 0, 0);
     }
+    
+    public void AddBlock(SpaceShipPiece piece,Pose pose){
+      if(! (piece instanceof Engine))
+          return;
+      enginePower+= ((Engine)piece).GetTrust();
+    }
+    public void RemoveBlock(SpaceShipPiece piece){
+    if(! (piece instanceof Engine))
+          return;
+      enginePower-= ((Engine)piece).GetTrust();
+    }
+    
+    
     public void update(float tpf){
        
       float fuelCost = tpf*Math.abs(engineActivity);

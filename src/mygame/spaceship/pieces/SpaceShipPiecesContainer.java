@@ -17,9 +17,6 @@ public class SpaceShipPiecesContainer {
     private HashMap<Vector3i,SpaceShipPiece> pieces;
     private HashMap<SpaceShipPiece,Vector3i> positions;
     private HashMap<SpaceShipPiece,Orientation> orientations;
-    private float enginePower;
-    private float mass;
-private float FuelCapacity;
     
     public SpaceShipPiecesContainer(){
     pieces = new HashMap<Vector3i, SpaceShipPiece>();
@@ -32,11 +29,6 @@ private float FuelCapacity;
     }
     
     public void AddBlock(SpaceShipPiece piece,Pose pose){
-      if(piece instanceof Engine)
-          enginePower += ((Engine) piece ).GetTrust();
-      if(piece instanceof FuelReservoir)
-          FuelCapacity += ((FuelReservoir) piece).GetCapacity();
-      mass += piece.GetMass();
      pieces.put(pose.position, piece);
      orientations.put(piece, pose.orientation);
      positions.put(piece, pose.position);
@@ -51,11 +43,6 @@ private float FuelCapacity;
     }
     
     public void RemoveBlock(SpaceShipPiece piece){
-        if(piece instanceof Engine)
-          enginePower -= ((Engine) piece).GetTrust();
-        if(piece instanceof FuelReservoir)
-            FuelCapacity -= ((FuelReservoir) piece).GetCapacity();
-        mass -= piece.GetMass();
         Vector3i position = positions.get(piece);
         pieces.remove(position);
         orientations.remove(piece);
