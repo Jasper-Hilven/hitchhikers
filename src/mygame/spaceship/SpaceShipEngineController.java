@@ -13,6 +13,9 @@ public class SpaceShipEngineController {
     void SetSpaceShip(SpaceShip ship){
       this.ship = ship;
     }
+    public SpaceShipEngineController(){
+        engineDirection = new Vector3f(1, 0, 0);
+    }
     void SetEngineActivity(float activity) { //One means top speed forward, minus one means top speed backward.
         this.engineActivity = activity;
         this.engineDirection = new Vector3f(1, 0, 0);
@@ -22,6 +25,7 @@ public class SpaceShipEngineController {
       float fuelCost = tpf*Math.abs(engineActivity);
       float consumedFuel = ship.ConsumeFuel(fuelCost);
       float impulsSize = fuelCost*Math.signum(engineActivity);
+      engineActivity = 0f;
       Vector3f impuls = engineDirection.mult(impulsSize);
       if(!impuls.equals(Vector3f.ZERO))
           ship.physicsController.GiveImpuls(impuls);

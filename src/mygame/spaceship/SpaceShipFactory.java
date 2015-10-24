@@ -22,7 +22,7 @@ public class SpaceShipFactory {
      this.UIControllerFactory = UIControllerFactory;
   }
     public SpaceShip GetSpaceShip(){
-    SpaceShipEngineController engineController = new SpaceShipEngineController();
+    SpaceShipEngineController engineController = systemControllerFactory.GetEngineController();
     SpaceShip ship =  new SpaceShip(UIControllerFactory.GetSpaceShipUIController(), 
             physicsControllerFactory.GetSpaceShipController(),
             systemControllerFactory.GetFuelController(),

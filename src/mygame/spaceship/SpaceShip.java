@@ -23,8 +23,8 @@ public class SpaceShip {
        this.pieces = new SpaceShipPiecesContainer();
        this.UIController = controller;
        this.physicsController = physicsController;
-       this.fuelController = new SpaceShipFuelController();
-       this.engineController = new SpaceShipEngineController();
+       this.fuelController = fuelController;
+       this.engineController = engineController;
        physicsController.SetSpaceShip(this);
     }
     ///////REGION PHYSICS
