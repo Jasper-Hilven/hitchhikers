@@ -3,12 +3,13 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package mygame.spaceship;
 
-import mygame.spaceship.movement.SpaceShipEngineController;
+import mygame.spaceship.ui.SpaceShipUIControllerFactory;
+import mygame.spaceship.physics.systems.engine.SpaceShipEngineController;
 import com.jme3.asset.AssetManager;
-import mygame.physics.PhysicsControllerFactory;
-import mygame.physics.SystemControllerFactory;
-import mygame.spaceship.movement.BasicEngine;
-import mygame.spaceship.movement.BasicFuelReservoir;
+import mygame.spaceship.physics.PhysicsControllerFactory;
+import mygame.spaceship.physics.systems.SystemControllerFactory;
+import mygame.spaceship.physics.systems.engine.BasicEngine;
+import mygame.spaceship.physics.systems.fuel.BasicFuelReservoir;
 import mygame.util.DiscreteMath.Pose;
 import mygame.util.DiscreteMath.Vector3i;
 

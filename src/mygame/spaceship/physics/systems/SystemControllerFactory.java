@@ -1,11 +1,11 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-package mygame.physics;
+package mygame.spaceship.physics.systems;
 
 import java.util.ArrayList;
-import mygame.spaceship.movement.SpaceShipFuelController;
-import mygame.spaceship.movement.SpaceShipEngineController;
+import mygame.spaceship.physics.systems.fuel.SpaceShipFuelController;
+import mygame.spaceship.physics.systems.engine.SpaceShipEngineController;
 
 
 public class SystemControllerFactory{

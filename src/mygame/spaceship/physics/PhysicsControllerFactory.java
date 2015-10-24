@@ -2,10 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package mygame.physics;
+package mygame.spaceship.physics;
 
 import java.util.ArrayList;
-import mygame.spaceship.movement.SpaceShipPhysicsController;
+import mygame.spaceship.physics.SpaceShipPhysicsController;
 
 public class PhysicsControllerFactory {
   private ArrayList<SpaceShipPhysicsController> shipControllers = new ArrayList<SpaceShipPhysicsController>();

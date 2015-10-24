@@ -1,2 +1,0 @@
-package mygame.spaceship.movement;
-

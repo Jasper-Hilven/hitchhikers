@@ -1,11 +1,11 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-package mygame.spaceship.movement;
+package mygame.spaceship.physics.systems.engine;
 
 import com.jme3.math.Vector3f;
 import mygame.spaceship.SpaceShip;
-import mygame.spaceship.movement.Engine;
+import mygame.spaceship.physics.systems.engine.Engine;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.util.DiscreteMath.Pose;
 

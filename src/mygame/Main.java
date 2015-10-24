@@ -5,14 +5,14 @@
 package mygame;
 
 import mygame.spaceship.SpaceShip;
-import mygame.spaceship.movement.SpaceShipMovementController;
+import mygame.spaceship.physics.control.SpaceShipMovementController;
 import com.jme3.app.SimpleApplication;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.renderer.RenderManager;
-import mygame.physics.PhysicsControllerFactory;
-import mygame.physics.SystemControllerFactory;
+import mygame.spaceship.physics.PhysicsControllerFactory;
+import mygame.spaceship.physics.systems.SystemControllerFactory;
 import mygame.spaceship.SpaceShipFactory;
-import mygame.spaceship.SpaceShipUIControllerFactory;
+import mygame.spaceship.ui.SpaceShipUIControllerFactory;
 
 
 public class Main extends SimpleApplication {

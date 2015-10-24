@@ -1,7 +1,7 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-package mygame.spaceship.movement;
+package mygame.spaceship.physics;
 
 import mygame.util.DiscreteMath.Pose;
 import com.jme3.math.Vector3f;
@@ -45,7 +45,7 @@ public class SpaceShipPhysicsController {
       return position;
   }
   //expressed in N*s
-  void GiveImpuls(Vector3f impuls)
+  public void GiveImpuls(Vector3f impuls)
   {
     frameImpuls = frameImpuls.add(impuls);
   }

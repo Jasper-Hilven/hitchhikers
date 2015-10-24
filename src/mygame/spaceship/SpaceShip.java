@@ -4,9 +4,10 @@
 
 package mygame.spaceship;
 
-import mygame.spaceship.movement.SpaceShipPhysicsController;
-import mygame.spaceship.movement.SpaceShipEngineController;
-import mygame.spaceship.movement.SpaceShipFuelController;
+import mygame.spaceship.ui.SpaceShipUIController;
+import mygame.spaceship.physics.SpaceShipPhysicsController;
+import mygame.spaceship.physics.systems.engine.SpaceShipEngineController;
+import mygame.spaceship.physics.systems.fuel.SpaceShipFuelController;
 import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;

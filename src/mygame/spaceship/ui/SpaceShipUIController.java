@@ -1,7 +1,7 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-package mygame.spaceship;
+package mygame.spaceship.ui;
 
 import mygame.util.DiscreteMath.Vector3i;
 import com.jme3.asset.AssetManager;
@@ -14,7 +14,7 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import java.util.HashMap;
 import java.util.Map;
-import mygame.spaceship.movement.Engine;
+import mygame.spaceship.physics.systems.engine.Engine;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.util.DiscreteMath.Pose;
 
@@ -52,7 +52,7 @@ public class SpaceShipUIController {
         return floor;
     }
 
-    void SetPosition(Vector3f position) {
+    public void SetPosition(Vector3f position) {
       Ship.setLocalTranslation(position);
     }
 }
