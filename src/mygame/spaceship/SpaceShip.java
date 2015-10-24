@@ -7,6 +7,7 @@ package mygame.spaceship;
 import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.spaceship.pieces.SpaceShipPiecesContainer;
+import mygame.util.Pose;
 import mygame.util.Vector3i;
 
 /**
@@ -38,10 +39,10 @@ public class SpaceShip {
     ///////ENDREGION PHYSICS
     
     ///////REGION PIECES
-    public void AddPiece(SpaceShipPiece piece, Vector3i position){
-        this.pieces.AddBlock(piece, position);
-        this.UIController.AddBlock(piece, position);
-        this.physicsController.AddBlock(piece,position);
+    public void AddPiece(SpaceShipPiece piece, Pose pose){
+        this.pieces.AddBlock(piece, pose);
+        this.UIController.AddBlock(piece, pose);
+        this.physicsController.AddBlock(piece, pose);
         
     }
     

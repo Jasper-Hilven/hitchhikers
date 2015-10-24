@@ -8,6 +8,7 @@ import mygame.physics.PhysicsControllerFactory;
 import mygame.physics.SystemControllerFactory;
 import mygame.spaceship.pieces.BasicEngine;
 import mygame.spaceship.pieces.BasicFuelReservoir;
+import mygame.util.Pose;
 import mygame.util.Vector3i;
 
 
@@ -28,8 +29,8 @@ public class SpaceShipFactory {
             systemControllerFactory.GetFuelController(),
             engineController);
     engineController.SetSpaceShip(ship);  
-    ship.AddPiece(new BasicEngine(), new Vector3i(0, 0, 0));
-        ship.AddPiece(new BasicFuelReservoir(), new Vector3i(0, 0, 1));
+    ship.AddPiece(new BasicEngine(), new Pose(0, 0, 0));
+        ship.AddPiece(new BasicFuelReservoir(), new Pose(0, 0, 1));
         return ship;
     }  
 }

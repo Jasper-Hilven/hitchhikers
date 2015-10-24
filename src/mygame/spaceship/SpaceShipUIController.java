@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import mygame.spaceship.pieces.Engine;
 import mygame.spaceship.pieces.SpaceShipPiece;
+import mygame.util.Pose;
 
 
 public class SpaceShipUIController {
@@ -30,11 +31,11 @@ public class SpaceShipUIController {
     public Spatial GetShip(){
       return Ship;
     }
-    public void AddBlock(SpaceShipPiece piece,Vector3i position){
+    public void AddBlock(SpaceShipPiece piece,Pose pose){
         Geometry block = CreateBlock(piece);
         piecesToGeometry.put(piece, block);
         this.Ship.attachChild(block);
-        block.setLocalTranslation(position.toVector3f());
+        block.setLocalTranslation(pose.position.toVector3f());
     }
     public void RemoveBlock(SpaceShipPiece piece){
         Geometry block = piecesToGeometry.get(piece);

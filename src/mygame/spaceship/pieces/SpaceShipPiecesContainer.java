@@ -6,6 +6,8 @@ package mygame.spaceship.pieces;
 
 import java.util.HashMap;
 import mygame.util.MaybeNot;
+import mygame.util.Orientation;
+import mygame.util.Pose;
 import mygame.util.Sure;
 import mygame.util.SureNot;
 import mygame.util.Vector3i;
@@ -14,6 +16,7 @@ public class SpaceShipPiecesContainer {
     
     private HashMap<Vector3i,SpaceShipPiece> pieces;
     private HashMap<SpaceShipPiece,Vector3i> positions;
+    private HashMap<SpaceShipPiece,Orientation> orientations;
     private float enginePower;
     private float mass;
 private float FuelCapacity;
@@ -27,14 +30,15 @@ private float FuelCapacity;
       
     }
     
-    public void AddBlock(SpaceShipPiece piece,Vector3i position){
+    public void AddBlock(SpaceShipPiece piece,Pose pose){
       if(piece instanceof Engine)
           enginePower += ((Engine) piece ).GetTrust();
       if(piece instanceof FuelReservoir)
           FuelCapacity += ((FuelReservoir) piece).GetCapacity();
       mass += piece.GetMass();
-     pieces.put(position, piece);
-     positions.put(piece, position);
+     pieces.put(pose.position, piece);
+     orientations.put(piece, pose.orientation);
+     positions.put(piece, pose.position);
     }
     
     public MaybeNot<String> CanAddBlock(SpaceShipPiece piece, Vector3i position){
@@ -53,7 +57,8 @@ private float FuelCapacity;
         mass -= piece.GetMass();
         Vector3i position = positions.get(piece);
         pieces.remove(position);
-        positions.put(piece, position);
+        orientations.remove(piece);
+        positions.remove(piece);
     }
 }
 

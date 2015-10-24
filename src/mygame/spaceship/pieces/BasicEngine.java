@@ -9,7 +9,7 @@ public class BasicEngine implements Engine{
     public float GetTrust() {
         return 1;
     }
-
+    
     public float GetMass() {
         return 5; 
     }

@@ -13,6 +13,12 @@ public class Pose {
     public Pose(Orientation orientation, Vector3i position){
     this.orientation = orientation;
     this.position = position;}
+    public Pose(Vector3i position){
+      this(new Orientation(),position);
+    }
+    public Pose(int x, int y, int z){
+      this(new Orientation(),new Vector3i(x, y, z));
+    }
 }
     
 

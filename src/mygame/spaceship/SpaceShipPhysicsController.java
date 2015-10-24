@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package mygame.spaceship;
 
+import mygame.util.Pose;
 import com.jme3.math.Vector3f;
 import mygame.spaceship.pieces.SpaceShipPiece;
 import mygame.util.Vector3i;
@@ -53,7 +54,7 @@ public class SpaceShipPhysicsController {
       BlockMass -= 1f;    
     }
 
-    void AddBlock(SpaceShipPiece piece, Vector3i position) {
+    void AddBlock(SpaceShipPiece piece, Pose pose) {
      BlockMass += 1f;
     }
 }
